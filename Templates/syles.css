@@ -1,0 +1,370 @@
+    :root {
+      --primary: #25705A;
+      --accent: #F9A825;
+      --light: #FFF3E0;
+      --dark: #1D3C34;
+      --whatsapp: #075E54;
+      --testimonial-bg: #E6F5F2;
+      --nav-bg: #1D3C34;
+      --text: #2D3436;
+      --white: #FFFFFF;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 4rem 2rem 2rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 60px 30px;
+      border-bottom-right-radius: 60px 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    h2 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 0;
+    }
+    h3 {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    nav {
+      background: var(--nav-bg);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 3px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: var(--light);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .cta-button {
+      background: var(--accent);
+      color: var(--dark);
+      padding: 0.9rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: bold;
+      border: none;
+      transition: all 0.2s;
+      font-size: 1.05rem;
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .highlight-coming-soon {
+      background: #FFF8E1;
+      border-left: 6px solid var(--accent);
+      color: #865200;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      font-size: 1.12rem;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(249,168,37,0.08);
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 8px rgba(29,60,52,0.08);
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      gap: 0.8rem;
+    }
+    .whatsapp-btn {
+      background: var(--whatsapp);
+      color: var(--white);
+    }
+    .whatsapp-btn:hover {
+      background: #128C7E;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .email-btn {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    .email-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .wa-icon-bg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      box-shadow: 0 2px 8px rgba(7, 94, 84, 0.15);
+      border: 2px solid #25D366;
+      transition: box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover .wa-icon-bg {
+      box-shadow: 0 4px 16px rgba(37,211,102,0.25), 0 0 0 4px #128C7E33;
+    }
+    .home-section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    .mission {
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .home-columns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .home-benefits {
+      flex: 1;
+      min-width: 220px;
+    }
+    .home-benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .home-benefits li {
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .home-benefits li:before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+    .home-visual {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-visual img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .testimonial {
+      font-style: italic;
+      background: var(--testimonial-bg);
+      padding: 1.5rem;
+      border-left: 6px solid var(--accent);
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+    .testimonial span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .cta-home {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .wellness-tip {
+      background: #4EC6A6;
+      color: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+    .bio-section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    .bio-cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .bio-card {
+      background: var(--testimonial-bg);
+      border-left: 6px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.5rem;
+      flex: 1 1 320px;
+      min-width: 270px;
+      max-width: 420px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(29,60,52,0.05);
+    }
+    .bio-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .pricing-section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    .pricing-section h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-top: 0;
+    }
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .pricing-card {
+      background: var(--testimonial-bg);
+      border-left: 6px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.5rem;
+      flex: 1 1 240px;
+      min-width: 220px;
+      max-width: 280px;
+      box-shadow: 0 2px 8px rgba(29,60,52,0.05);
+    }
+    .pricing-card h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .pricing-card .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 0.5rem 0 1rem 0;
+    }
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .pricing-card li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .pricing-card li:before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+    .note {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      color: #666;
+    }
+    .coming-soon-section {
+      background: #FFF8E1;
+      border-left: 6px solid #F9A825;
+      color: #865200;
+      padding: 2rem;
+      border-radius: 14px;
+      margin-bottom: 3rem;
+      box-shadow: 0 2px 8px rgba(249,168,37,0.08);
+      text-align: center;
+    }
+    .coming-soon-section h2 {
+      color: #F9A825;
+      margin-bottom: 0.5rem;
+    }
+    .coming-soon-section p {
+      font-size: 1.15rem;
+      margin: 0.5rem 0 0 0;
+    }
+    @media (max-width: 900px) {
+      .bio-cards, .home-columns, .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .home-visual {
+        margin-top: 1rem;
+      }
+      .pricing-card {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+      }
+      main {
+        padding: 1rem;
+      }
+      .contact-buttons, .cta-home {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-btn, .cta-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
