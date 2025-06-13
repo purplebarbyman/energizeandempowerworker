@@ -1,50 +1,595 @@
----
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energize & Empower Coaching – Health Coaching for Obesity, Diabetes & Blood Pressure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #25705A;
+      --accent: #F9A825;
+      --light: #FFF3E0;
+      --dark: #1D3C34;
+      --whatsapp: #075E54;
+      --testimonial-bg: #E6F5F2;
+      --nav-bg: #1D3C34;
+      --text: #2D3436;
+      --white: #FFFFFF;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 4rem 2rem 2rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 60px 30px;
+      border-bottom-right-radius: 60px 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    h2 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 0;
+    }
+    h3 {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    nav {
+      background: var(--nav-bg);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 3px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: var(--light);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .cta-button {
+      background: var(--accent);
+      color: var(--dark);
+      padding: 0.9rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: bold;
+      border: none;
+      transition: all 0.2s;
+      font-size: 1.05rem;
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .highlight-coming-soon {
+      background: #FFF8E1;
+      border-left: 6px solid var(--accent);
+      color: #865200;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      font-size: 1.12rem;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(249,168,37,0.08);
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 8px rgba(29,60,52,0.08);
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      gap: 0.8rem;
+    }
+    .whatsapp-btn {
+      background: var(--whatsapp);
+      color: var(--white);
+    }
+    .whatsapp-btn:hover {
+      background: #128C7E;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .email-btn {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    .email-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .wa-icon-bg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      box-shadow: 0 2px 8px rgba(7, 94, 84, 0.15);
+      border: 2px solid #25D366;
+      transition: box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover .wa-icon-bg {
+      box-shadow: 0 4px 16px rgba(37,211,102,0.25), 0 0 0 4px #128C7E33;
+    }
+    .home-section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    .mission {
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .home-columns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .home-benefits {
+      flex: 1;
+      min-width: 220px;
+    }
+    .home-benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .home-benefits li {
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .home-benefits li:before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+    .home-visual {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-visual img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .testimonial {
+      font-style: italic;
+      background: var(--testimonial-bg);
+      padding: 1.5rem;
+      border-left: 6px solid var(--accent);
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+    .testimonial span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .cta-home {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .wellness-tip {
+      background: #4EC6A6;
+      color: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+    .bio-section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    .bio-cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .bio-card {
+      background: var(--testimonial-bg);
+      border-left: 6px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.5rem;
+      flex: 1 1 320px;
+      min-width: 270px;
+      max-width: 420px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(29,60,52,0.05);
+    }
+    .bio-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .pricing-section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(29,60,52,0.07);
+    }
+    .pricing-section h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-top: 0;
+    }
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .pricing-card {
+      background: var(--testimonial-bg);
+      border-left: 6px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.5rem;
+      flex: 1 1 240px;
+      min-width: 220px;
+      max-width: 280px;
+      box-shadow: 0 2px 8px rgba(29,60,52,0.05);
+    }
+    .pricing-card h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .pricing-card .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 0.5rem 0 1rem 0;
+    }
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .pricing-card li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .pricing-card li:before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+    .note {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      color: #666;
+    }
+    .coming-soon-section {
+      background: #FFF8E1;
+      border-left: 6px solid #F9A825;
+      color: #865200;
+      padding: 2rem;
+      border-radius: 14px;
+      margin-bottom: 3rem;
+      box-shadow: 0 2px 8px rgba(249,168,37,0.08);
+      text-align: center;
+    }
+    .coming-soon-section h2 {
+      color: #F9A825;
+      margin-bottom: 0.5rem;
+    }
+    .coming-soon-section p {
+      font-size: 1.15rem;
+      margin: 0.5rem 0 0 0;
+    }
+    @media (max-width: 900px) {
+      .bio-cards, .home-columns, .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .home-visual {
+        margin-top: 1rem;
+      }
+      .pricing-card {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+      }
+      main {
+        padding: 1rem;
+      }
+      .contact-buttons, .cta-home {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-btn, .cta-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Energize & Empower Coaching</h1>
+    <p>Transform your health and wellness journey</p>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#bio">Bio</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#coming-soon">Coming Soon</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section id="home" class="home-section">
+      <h2>Welcome to Energize & Empower Coaching</h2>
+      <p class="mission">
+        <strong>Our Mission:</strong> To help you reclaim your energy, manage your weight, and improve your health by focusing on Obesity, Diabetes, and Blood Pressure.
+      </p>
+      <div class="home-columns">
+        <div class="home-benefits">
+          <h3>What We Offer</h3>
+          <ul>
+            <li>Personalized coaching for Obesity, Diabetes, and Blood Pressure management</li>
+            <li>Strategies to boost your energy and support healthy weight loss</li>
+            <li>Holistic lifestyle changes tailored to your unique needs</li>
+            <li>1-on-1 sessions and group support options</li>
+          </ul>
+        </div>
+        <div class="home-visual">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Wellness" loading="lazy">
+        </div>
+      </div>
+      <blockquote class="testimonial">
+        “After working with Energize & Empower Coaching, I feel more energetic and confident managing my health!”
+        <span>- Happy Client</span>
+      </blockquote>
+      <div class="cta-home">
+        <a href="#contact" class="cta-button">Book a Free Discovery Call</a>
+        <a href="mailto:info@zach-jones.net" class="cta-button">Join Our Newsletter</a>
+      </div>
+      <div class="wellness-tip">
+        <strong>Did You Know?</strong> Managing blood pressure, diabetes, and obesity can significantly improve your energy and quality of life.
+      </div>
+    </section>
+    <section id="services">
+      <h2>Our Services</h2>
+      <p>We specialize in coaching clients to manage and improve their health related to Obesity, Diabetes, and Blood Pressure.</p>
+      <p>Our approach integrates energy management and sustainable weight loss strategies tailored to these conditions.</p>
+      <p>We offer personalized 1-on-1 coaching sessions and will soon launch group support programs.</p>
+      <div class="cta-home">
+        <a href="#contact" class="cta-button">Book a Session</a>
+      </div>
+    </section>
+    <section id="bio" class="bio-section">
+      <h2>About Zachary D. Jones</h2>
+      <div class="bio-cards">
+        <div class="bio-card concise-bio">
+          <h3>Concise Bio</h3>
+          <p>
+            Zachary D. Jones is a Health and Wellness Coach with over five years of experience, currently practicing at the James Haley VHA in Lakeland, FL. An Air Force veteran (2003–2007), Zachary specializes in helping clients overcome fatigue, manage weight, and thrive with thyroid health challenges.
+          </p>
+        </div>
+        <div class="bio-card expanded-bio">
+          <h3>Expanded Bio</h3>
+          <p>
+            Welcome! I’m Zachary D. Jones, founder of Energize & Empower Coaching, LLC, and your dedicated Health and Wellness Coach based in Lakeland, Florida. With over five years of experience, I currently serve clients at the James Haley VHA, focusing on helping adults overcome fatigue, achieve sustainable weight loss, and manage thyroid health—especially for those living with Hashimoto’s.
+          </p>
+          <p>
+            Before my coaching career, I proudly served in the United States Air Force from 2003 to 2007. The discipline, resilience, and commitment I learned during my service now fuel my passion for supporting others on their wellness journeys.
+          </p>
+          <p>
+            My approach is holistic and practical, tailored to your unique needs and goals. I believe in sustainable lifestyle changes, not quick fixes. Together, we’ll create a personalized roadmap to help you reclaim your energy, improve your well-being, and live life to the fullest.
+          </p>
+          <p>
+            Outside of coaching, I enjoy exploring the outdoors, trying new healthy recipes, and connecting with my community. Let’s work together to energize and empower your life!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="pricing-section">
+      <h2>Coaching Packages & Pricing</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Single Session</h3>
+          <p class="price">$150</p>
+          <ul>
+            <li>60-minute one-on-one session</li>
+            <li>Customized health assessment</li>
+            <li>Actionable wellness plan</li>
+          </ul>
+          <a href="#contact" class="cta-button">Book Now</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Monthly Support</h3>
+          <p class="price">$350/month</p>
+          <ul>
+            <li>Two 60-minute sessions</li>
+            <li>Email support between sessions</li>
+            <li>Personalized resources</li>
+            <li>Weekly check-ins</li>
+          </ul>
+          <a href="#contact" class="cta-button">Book Now</a>
+        </div>
+        <div class="pricing-card">
+          <h3>3-Month Intensive</h3>
+          <p class="price">$1,000</p>
+          <ul>
+            <li>Six 60-minute sessions</li>
+            <li>Unlimited email support</li>
+            <li>Custom meal & exercise plans</li>
+            <li>Progress reviews</li>
+          </ul>
+          <a href="#contact" class="cta-button">Book Now</a>
+        </div>
+      </div>
+      <p class="note">Group coaching and specialized programs available—contact us for details!</p>
+    </section>
+    <section id="coming-soon" class="coming-soon-section">
+      <h2>Coming Soon</h2>
+      <p>
+        We are excited to announce that soon we will be offering <strong>Mind Body Medicine (MBM)</strong> and <strong>Healing Touch</strong> sessions! These holistic practices will provide additional support for your wellness journey, helping you manage stress, improve energy, and promote healing from within.<br><br>
+        <em>Stay tuned for updates and launch dates!</em>
+      </p>
+    </section>
+    <section id="quiz" class="quiz-section">
+      <h2>Is Your Thyroid Holding You Back?</h2>
+      <p>Take this quick quiz to discover if your thyroid might be affecting your energy and wellness.</p>
+      <form id="thyroid-quiz">
+        <div class="quiz-question">
+          <h3>1. Do you often feel fatigued, even after a full night’s sleep?</h3>
+          <label><input type="radio" name="q1" value="yes"> Yes</label>
+          <label><input type="radio" name="q1" value="no"> No</label>
+        </div>
+        <div class="quiz-question">
+          <h3>2. Have you noticed unexplained weight gain or difficulty losing weight?</h3>
+          <label><input type="radio" name="q2" value="yes"> Yes</label>
+          <label><input type="radio" name="q2" value="no"> No</label>
+        </div>
+        <div class="quiz-question">
+          <h3>3. Do you feel cold more often than those around you?</h3>
+          <label><input type="radio" name="q3" value="yes"> Yes</label>
+          <label><input type="radio" name="q3" value="no"> No</label>
+        </div>
+        <div class="quiz-question">
+          <h3>4. Do you experience dry skin, hair loss, or brittle nails?</h3>
+          <label><input type="radio" name="q4" value="yes"> Yes</label>
+          <label><input type="radio" name="q4" value="no"> No</label>
+        </div>
+        <div class="quiz-question">
+          <h3>5. Do you have trouble concentrating or feel “foggy” throughout the day?</h3>
+          <label><input type="radio" name="q5" value="yes"> Yes</label>
+          <label><input type="radio" name="q5" value="no"> No</label>
+        </div>
+        <button type="submit" class="cta-button">Get Your Results</button>
+      </form>
+      <div id="quiz-result" class="quiz-result"></div>
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Ready to take the next step? Reach out today!</p>
+      <p>Email: info@energizeandempower.com</p>
+      <div class="contact-buttons">
+        <a href="https://wa.me/18159544398" target="_blank" class="contact-btn whatsapp-btn">
+          <span class="wa-icon-bg">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="16" fill="#25D366"/>
+              <path d="M22.6 19.9c-.3-.2-1.7-.8-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.5.1-.7.1-.1.2-.3.3-.4.1-.1.1-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.7-1.7-.9-2.3-.2-.5-.4-.4-.7-.4h-.6c-.2 0-.4.1-.5.2-.2.2-.7.7-.7 1.6 0 .2 0 .4.1.6.2.5.6 1.5 1.8 2.7 1.3 1.3 2.7 1.7 3.2 1.9.5.2 1 .2 1.3.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1.1z" fill="#fff"/>
+            </svg>
+          </span>
+          <span style="font-weight: bold; font-size: 1.08rem;">Message Us on WhatsApp</span>
+        </a>
+        <a href="mailto:info@energizeandempower.com" class="contact-btn email-btn">
+          <span style="vertical-align: middle; margin-right: 8px;">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+              <circle cx="16" cy="16" r="16" fill="#F9A825"/>
+              <path d="M8 12l8 6 8-6v8a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-8zm16-2H8a2 2 0 0 0-2 2l10 7 10-7a2 2 0 0 0-2-2z" fill="#fff"/>
+            </svg>
+          </span>
+          <span style="font-weight: bold;">Email Us</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Energize & Empower Coaching LLC</p>
+    <p style="font-size: 0.9rem; opacity: 0.8;">Haz clic en el botón verde para enviarnos un mensaje directo por WhatsApp.</p>
+  </footer>
+  <script>
+    document.getElementById('thyroid-quiz').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const result = document.getElementById('quiz-result');
+      let yesCount = 0;
+      for (let i = 1; i <= 5; i++) {
+        if (document.querySelector(`input[name="q${i}"]:checked`)?.value === 'yes') yesCount++;
+      }
+      if (yesCount >= 3) {
+        result.innerHTML = `
+          <h3>Your Results</h3>
+          <p>You answered <strong>${yesCount} out of 5</strong> questions with "Yes." Some of your symptoms may be related to thyroid function or other wellness factors.</p>
+          <p>Consider reaching out for a free discovery call to discuss your results and how coaching can help!</p>
+          <a href="#contact" class="cta-button">Book a Free Call</a>
+        `;
+      } else {
+        result.innerHTML = `
+          <h3>Your Results</h3>
+          <p>You answered <strong>${yesCount} out of 5</strong> questions with "Yes." While your symptoms may not strongly suggest thyroid issues, everyone can benefit from wellness coaching!</p>
+          <p>Ready to take the next step? <a href="#contact" class="cta-button">Contact Us</a></p>
+        `;
+      }
+    });
+  </script>
+</body>
 </html>
